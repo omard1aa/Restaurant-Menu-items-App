@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete!</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    h4 {
+    text-align: center;
+}
+.del{
+    background-color: palegoldenrod;
+    border-radius: 25px;
+}
+</style>
+<body>
+<div class="container" style="margin: 20% 10% 30% 5%;" >
+    <h4><span>&nbsp;&nbsp;Are you sure you want to delete {{item.name}} ?&nbsp;&nbsp;</span></h4>
+    <span style="float:left; margin-left: 500px">
+    <form action="{{url_for('delete_item', restaurant_id=restaurant_id, menu_id=menu_id)}}" method="POST">
+        <button type="submit" class="btn btn-danger" name="del">Delete</button>
+    </form>
+    </span>
+    <span style="float:right;  margin-right: 450px;">
+    <form action="{{url_for('show_menu', restaurant_id=restaurant_id, menu_id=menu_id)}}" method="GET">
+        <button type="submit" class="btn btn-outline-danger" name="back">Cancel</button>
+    </form>
+</span>
+</div>
+
+</body>
+</html>

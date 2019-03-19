@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new one</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div style="margin-left: 550px">
+    <h2>Edit {{item.name}}</h2>
+    <form action="{{url_for('new_item', restaurant_id=restaurant_id, menu_id=item.id)}}" method="post">
+        <p>Name:</p>
+        <input type="text" name="name">
+        <br><br><br>
+        <p>Description:</p>
+        <input type="text" name="description">
+        <br><br><br>
+        <p>Price:</p>
+        <input type="text" name="price">
+        <br><br><br>
+        <p>Category:</p>
+        <input type="radio" name="course" value="Appetizer">Appetizer<br>
+        <input type="radio" name="course" value="Entree">Entree<br>
+        <input type="radio" name="course" value="Dessert">Dessert<br>
+        <input type="radio" name="course" value="Beverage">Beverage<br>
+        <br>
+        <Button class="btn btn-success" type="submit">Done</Button>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div style="margin-left: 250px"><br>
+        <h2>Edit {{item.name}} item.</h2>
+        <form action="{{url_for('edit_menu', restaurant_id=restaurant_id, menu_id=item.id)}}" method="post">
+            <p>Name:</p>
+            <input style="width: 400px" type="text" name="name">
+            <br>
+            <p>Description:</p>
+            <input style="width: 400px" type="text" name="description">
+            <br>
+            <p>Price:</p>
+            <input style="width: 400px" type="text" name="price">
+            <br>
+            <p>Category:</p>
+            <input type="radio" name="course" value="Appetizer">Appetizer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="course" value="Entree">Entree&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="course" value="Dessert">Dessert&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="course" value="Beverage">Beverage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br><br>
+            <button class="btn btn-primary" style="width: 200px; height: 50px;" type="submit">Submit</button>
+
+        </form>
+
+        <form action="{{url_for('show_menu', restaurant_id=item.restaurant_id)}}" method="GET">
+                <button class="btn btn-outline-secondary" style="width: 200px; height: 50px;" type="submit">Cancel</button>
+        </form>
+        <br>
+
+    </div>
+</div>
+
+</body>
+</html>

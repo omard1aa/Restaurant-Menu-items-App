@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+    </style>
+    <!--<link rel="stylesheet" type="text/css" href="../static/style.css">-->
+</head>
+<body style="background-color: palegoldenrod">
+<div class="container">
+    <h2 style="text-align: center">Restaurants</h2>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+    <ul>
+        {% for message in messages %}
+        <li><strong style="color: green">{{message}}</strong></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div class="row" style="background-color: white; border-radius: 25px; padding: 10px;">
+        <div>
+            {% for restaurant in restaurants %}
+            <span>&nbsp;{{restaurant.id}}-</span>
+            <a href="{{url_for('show_menu', restaurant_id=restaurant.id)}}">{{restaurant.name}}</a>
+            <br><br>
+            {% endfor %}
+            <span style="text-align: center; float: left; margin-left: 380px">
+            <form action="{{url_for('new_restaurant')}}" method="get">
+                <button class="btn btn-primary" type="submit">Create New Restaurant</button>
+            </form>
+        </span>&nbsp;&nbsp;
+            <span style="float: right; margin-right: 200px;">
+            <form action="{{url_for('main')}}" method="get">
+                <button class="btn btn-outline-primary">Back to home</button>
+            </form>
+        </span>
+            <br><br>
+        </div>
+    </div>
+    <br><br>
+</div>
+
+</body>
+</html>
